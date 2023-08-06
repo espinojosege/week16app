@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/week16app/static/css/main.cefd60ae.css",
+    "main.js": "/week16app/static/js/main.7d0398fc.js",
+    "index.html": "/week16app/index.html",
+    "main.cefd60ae.css.map": "/week16app/static/css/main.cefd60ae.css.map",
+    "main.7d0398fc.js.map": "/week16app/static/js/main.7d0398fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cefd60ae.css",
+    "static/js/main.7d0398fc.js"
+  ]
+}
