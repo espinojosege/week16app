@@ -8,13 +8,14 @@ import Layout from "./pages/Layout";
 import Video from "./pages/Video";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
+
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/week16app" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="Video" element={<Video />} />
+          <Route path="video" element={<Video />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
         </Route>

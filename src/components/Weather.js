@@ -8,7 +8,7 @@ import LocationRequests from "./locationRequest";
 import PostForm from "./Form";
 import Select from "./Select";
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherRequest, setWeatherRequest] = useState([]);
   const [inputValue, setinputValue] = useState("");
   const [coordRequest, setCoordRequests] = useState([]);
@@ -34,11 +34,11 @@ export default function Weather() {
   }
 
   function handleInputChangeButton(event) {
-    let lat = coordRequest[radioSelected].lat;
-    let lon = coordRequest[radioSelected].lon;
+    let locationLat = coordRequest[radioSelected].lat;
+    let locationLng = coordRequest[radioSelected].lon;
     //console.log(coordRequest[radioSelected].name, lat, lon);
     let temp = [...weatherRequest];
-    Open_Api.getWeather(lat, lon).then((data) => {
+    Open_Api.getWeather(locationLat, locationLng).then((data) => {
       console.log(data);
       console.log(data.main.temp, data.weather[0].description);
       setRadioSelected("");
@@ -49,6 +49,8 @@ export default function Weather() {
         temp: data.main.temp,
         winds: data.wind.speed,
         condition: data.weather[0].description,
+        lat: locationLat,
+        lng: locationLng,
       };
       console.log(newObj);
 
@@ -87,10 +89,10 @@ export default function Weather() {
   function handleEditButton(event) {
     console.log(weatherRequest[selectedValue]);
     let id = weatherRequest[selectedValue].id;
-    let lat = coordRequest[radioSelected].lat;
+    let latt = coordRequest[radioSelected].lat;
     let lon = coordRequest[radioSelected].lon;
     //console.log(coordRequest[radioSelected].name, lat, lon);
-    Open_Api.getWeather(lat, lon).then((data) => {
+    Open_Api.getWeather(latt, lon).then((data) => {
       console.log(data);
       console.log(data.main.temp, data.weather[0].description);
       setRadioSelected("");
@@ -103,6 +105,8 @@ export default function Weather() {
         temp: data.main.temp,
         winds: data.wind.speed,
         condition: data.weather[0].description,
+        lat: latt,
+        lng: lon,
       };
       console.log(newObj);
 
